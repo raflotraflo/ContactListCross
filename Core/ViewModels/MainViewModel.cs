@@ -1,13 +1,14 @@
+using Core.Messages;
 using Core.Models;
 using Core.Services;
 using MvvmCross.Core.ViewModels;
+using MvvmCross.Plugins.Messenger;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Core.ViewModels
 {
-    public class MainViewModel 
-        : MvxViewModel
+    public class MainViewModel : MvxViewModel
     {
         private ObservableCollection<Contact> _contacts;
         private IPopupService _popupService;
@@ -60,9 +61,13 @@ namespace Core.ViewModels
             }
         }
 
-        public MainViewModel(IPopupService popupService)
+        public MainViewModel(IPopupService popupService, IMvxMessenger messenger)
         {
             _popupService = popupService;
+            messenger.Subscribe<ContactMessage>(obj =>
+            {
+                Contacts.Add(obj.Contact);
+            }, MvxReference.Strong);
 
             Initialize();
         }

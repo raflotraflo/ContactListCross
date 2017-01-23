@@ -13,9 +13,9 @@ namespace iOS.Views
         {
             base.ViewDidLoad();
 
-            var set = this.CreateBindingSet<FirstView, Core.ViewModels.FirstViewModel>();
-            set.Bind(Label).To(vm => vm.Hello);
-            set.Bind(TextField).To(vm => vm.Hello);
+            var set = this.CreateBindingSet<FirstView, Core.ViewModels.MainViewModel>();
+            //set.Bind(Label).To(vm => vm.Hello);
+            //set.Bind(TextField).To(vm => vm.Hello);
             set.Apply();
         }
     }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
-    <string name="ApplicationName">Droid</string>
+  <string name="ApplicationName">ContactList</string>
+
+  <string name="add_contact">Add Contact</string>
+
+  <string name="name_hint">Name</string>
+  <string name="phone_number_hint">Phone number</string>
+  <string name="email_hint">Email</string>
 </resources>

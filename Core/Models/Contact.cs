@@ -18,5 +18,7 @@ namespace Core.Models
             Email = email;
             PhoneNumber = phoneNumber;
         }
+
+
     }
 }

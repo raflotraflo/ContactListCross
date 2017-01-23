@@ -87,10 +87,19 @@ namespace Droid
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int contact = 2130837504;
 			
 			// aapt resource value: 0x7f020001
-			public const int splash = 2130837505;
+			public const int email_icon = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int Icon = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int phone_icon = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int splash = 2130837508;
 			
 			static Drawable()
 			{
@@ -125,10 +134,16 @@ namespace Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int MainView = 2130903040;
+			public const int AddContactView = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int SplashScreen = 2130903041;
+			public const int MainView = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int SplashScreen = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int view_contact = 2130903043;
 			
 			static Layout()
 			{
@@ -143,11 +158,20 @@ namespace Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060001
-			public const int ApplicationName = 2131099649;
-			
 			// aapt resource value: 0x7f060000
-			public const int Hello = 2131099648;
+			public const int ApplicationName = 2131099648;
+			
+			// aapt resource value: 0x7f060001
+			public const int add_contact = 2131099649;
+			
+			// aapt resource value: 0x7f060004
+			public const int email_hint = 2131099652;
+			
+			// aapt resource value: 0x7f060002
+			public const int name_hint = 2131099650;
+			
+			// aapt resource value: 0x7f060003
+			public const int phone_number_hint = 2131099651;
 			
 			static String()
 			{

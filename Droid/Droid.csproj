@@ -71,11 +71,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="MvvmCross.Platform, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Platform.4.3.0\lib\MonoAndroid\MvvmCross.Platform.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\MonoAndroid\MvvmCross.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="MvvmCross.Platform.Droid, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvvmCross.Platform.4.3.0\lib\MonoAndroid\MvvmCross.Platform.Droid.dll</HintPath>
+      <HintPath>..\packages\MvvmCross.Platform.4.4.0\lib\MonoAndroid\MvvmCross.Platform.Droid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvvmCross.Plugins.Messenger, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.Plugin.Messenger.4.4.0\lib\MonoAndroid\MvvmCross.Plugins.Messenger.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -84,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrap\MessengerPluginBootstrap.cs" />
     <Compile Include="DebugTrace.cs" />
     <Compile Include="LinkerPleaseInclude.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
@@ -93,7 +98,8 @@
     <Compile Include="Services\DroidPopupService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="SplashScreen.cs" />
-    <Compile Include="Views\FirstView.cs" />
+    <Compile Include="Views\AddContactView.cs" />
+    <Compile Include="Views\MainView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GettingStarted.Xamarin" />
@@ -101,7 +107,13 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\SplashScreen.axml" />
-    <AndroidResource Include="Resources\layout\MainView.axml" />
+    <AndroidResource Include="Resources\layout\MainView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\view_contact.axml" />
+    <AndroidResource Include="Resources\layout\AddContactView.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
@@ -115,6 +127,21 @@
   <ItemGroup>
     <AndroidResource Include="Resources\values\SplashStyle.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\email_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\phone_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\email_icon.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\phone_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\email_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\phone_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\email_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\phone_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\contact.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\email_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\phone_icon.png" />
     <Content Include="ToDo-MvvmCross\_ Droid UI.txt" />
   </ItemGroup>
   <ItemGroup>
