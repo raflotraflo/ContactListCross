@@ -6,20 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess;
+using DataAccess.Entities;
+
 
 namespace Core.Models
 {
-    public class Contact
+    public class Contact : ContactEntity
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
 
-        public Contact(string name, string email, string phoneNumber)
+        public Contact(string name, string email, string phoneNumber): base(name, email, phoneNumber)
         {
-            Name = name;
-            Email = email;
-            PhoneNumber = phoneNumber;
         }
 
         private IMvxCommand _emailContact;

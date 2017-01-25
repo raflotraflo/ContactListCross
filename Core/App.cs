@@ -1,3 +1,5 @@
+using DataAccess.Repositories.ContactRepository;
+using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
 
 namespace Core
@@ -12,6 +14,8 @@ namespace Core
                 .RegisterAsLazySingleton();
 
             RegisterAppStart<ViewModels.MainViewModel>();
+
+            Mvx.RegisterType<IContactRepository>(() => new ContactDbRepository());
         }
     }
 }
