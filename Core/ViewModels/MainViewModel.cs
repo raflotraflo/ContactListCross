@@ -1,8 +1,10 @@
 using Core.Messages;
 using Core.Models;
 using Core.Services;
+using DataAccess.Repositories.ContactRepository;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Plugins.Messenger;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
@@ -12,6 +14,7 @@ namespace Core.ViewModels
     {
         private ObservableCollection<Contact> _contacts;
         private IPopupService _popupService;
+        private IContactRepository _contactRepository;
 
         public ObservableCollection<Contact> Contacts
         { 
@@ -52,7 +55,12 @@ namespace Core.ViewModels
                     deleteContact = new MvxCommand<Contact>((contact) =>
                     {
                         _popupService.Show("Delete Contact", string.Format("Are you sure you want to delete {0}?", contact.Name),
-                                            "Yes", () => Contacts.Remove(contact), 
+                                            "Yes", async () =>
+                                            {
+                                                await _contactRepository.Delete(contact.Id);
+                                                OnResume();
+                                            }
+                                           , 
                                             "No", delegate { });
                     });
                 }
@@ -61,27 +69,47 @@ namespace Core.ViewModels
             }
         }
 
-        public MainViewModel(IPopupService popupService, IMvxMessenger messenger)
+        public MainViewModel(IPopupService popupService, IMvxMessenger messenger, IContactRepository contactRepository)
         {
+            _contactRepository = contactRepository;
             _popupService = popupService;
-            messenger.Subscribe<ContactMessage>(obj =>
+            messenger.Subscribe<ContactMessage>(async obj =>
             {
-                Contacts.Add(obj.Contact);
+                await _contactRepository.Add(obj.Contact);
+                OnResume();
             }, MvxReference.Strong);
 
-            Initialize();
+            //Initialize();
         }
 
-        public void Initialize()
+        public async void OnResume()
         {
-            Contacts = new ObservableCollection<Contact>();
-
-            for (int i = 1; i <= 20; i++)
+            try
             {
-                Contacts.Add(new Contact("My " + i, "my_email@gmail.com", "530529985"));
-            }
+                var contactEntities = await _contactRepository.GetAll();
+                Contacts = new ObservableCollection<Contact>();
 
-            //_contacts = contacts;
+                foreach (var contactEntity in contactEntities)
+                {
+                    Contacts.Add(new Contact(contactEntity));
+                }
+            }
+            catch(Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+            }
         }
+
+        //public void Initialize()
+        //{
+        //    Contacts = new ObservableCollection<Contact>();
+
+        //    for (int i = 1; i <= 20; i++)
+        //    {
+        //        Contacts.Add(new Contact("My " + i, "my_email@gmail.com", "530529985"));
+        //    }
+
+        //    //_contacts = contacts;
+        //}
     }
 }

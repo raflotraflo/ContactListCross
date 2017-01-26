@@ -1,3 +1,5 @@
+using Core.Services;
+using DataAccess.Entities;
 using DataAccess.Repositories.ContactRepository;
 using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
@@ -15,7 +17,11 @@ namespace Core
 
             RegisterAppStart<ViewModels.MainViewModel>();
 
-            Mvx.RegisterType<IContactRepository>(() => new ContactDbRepository());
+            var databaseService = Mvx.Resolve<IDatabaseService>();
+
+            databaseService.Connection.CreateTable<ContactEntity>();
+
+            Mvx.RegisterType<IContactRepository>(() => new ContactDbRepository(databaseService.Connection));
         }
     }
 }

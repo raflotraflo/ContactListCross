@@ -31,6 +31,7 @@ namespace Droid
             Mvx.RegisterType<IPopupService, DroidPopupService>();
             Mvx.RegisterType<IEmailService, DroidEmailService>();
             Mvx.RegisterType<ICallerService, DroidCallerService>();
+            Mvx.RegisterType<IDatabaseService, DroidDatabaseService>();
         }
     }
 }

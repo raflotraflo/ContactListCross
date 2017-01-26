@@ -7,6 +7,7 @@ using MvvmCross.Core.ViewModels;
 using Core.Models;
 using MvvmCross.Plugins.Messenger;
 using Core.Messages;
+using DataAccess.Entities;
 
 namespace Core.ViewModels
 {
@@ -65,7 +66,7 @@ namespace Core.ViewModels
                 {
                     addContact = new MvxCommand(() =>
                     {
-                        var newContact = new Contact(Name, Email, PhoneNumber);
+                        var newContact = new ContactEntity(Name, Email, PhoneNumber);
                         _messenger.Publish(new ContactMessage(this, newContact));
 
                         Close(this);

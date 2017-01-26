@@ -47,6 +47,8 @@ namespace Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView = global::Droid.Resource.Styleable.MvxListView;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::Droid.Resource.String.ApplicationName;
+			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::Droid.Resource.String.Hello;
 		}
 		
 		public partial class Attribute
@@ -114,11 +116,11 @@ namespace Droid
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int MvvmCrossTagId = 2130968576;
+			// aapt resource value: 0x7f050000
+			public const int MvvmCrossTagId = 2131034112;
 			
-			// aapt resource value: 0x7f040001
-			public const int MvxBindingTagUnique = 2130968577;
+			// aapt resource value: 0x7f050001
+			public const int MvxBindingTagUnique = 2131034113;
 			
 			static Id()
 			{
@@ -158,20 +160,23 @@ namespace Droid
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f060000
-			public const int ApplicationName = 2131099648;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
-			// aapt resource value: 0x7f060001
-			public const int add_contact = 2131099649;
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
 			
-			// aapt resource value: 0x7f060004
-			public const int email_hint = 2131099652;
+			// aapt resource value: 0x7f040002
+			public const int add_contact = 2130968578;
 			
-			// aapt resource value: 0x7f060002
-			public const int name_hint = 2131099650;
+			// aapt resource value: 0x7f040005
+			public const int email_hint = 2130968581;
 			
-			// aapt resource value: 0x7f060003
-			public const int phone_number_hint = 2131099651;
+			// aapt resource value: 0x7f040003
+			public const int name_hint = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int phone_number_hint = 2130968580;
 			
 			static String()
 			{
@@ -186,8 +191,8 @@ namespace Droid
 		public partial class Style
 		{
 			
-			// aapt resource value: 0x7f050000
-			public const int Theme_Splash = 2131034112;
+			// aapt resource value: 0x7f060000
+			public const int Theme_Splash = 2131099648;
 			
 			static Style()
 			{

@@ -23,5 +23,9 @@ namespace DataAccess.Entities
             Email = email;
             PhoneNumber = phoneNumber;
         }
+        public ContactEntity()
+        {
+
+        }
     }
 }

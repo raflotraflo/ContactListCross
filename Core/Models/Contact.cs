@@ -18,6 +18,10 @@ namespace Core.Models
         public Contact(string name, string email, string phoneNumber): base(name, email, phoneNumber)
         {
         }
+        public Contact(ContactEntity contactEntity) : base(contactEntity.Name, contactEntity.Email, contactEntity.PhoneNumber)
+        {
+            Id = contactEntity.Id;
+        }
 
         private IMvxCommand _emailContact;
         public IMvxCommand EmailContact
